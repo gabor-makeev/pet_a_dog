@@ -1,6 +1,7 @@
 import {ModeToggle} from "@/components/ModeToggle";
 import {fetchDogs} from "@/lib/data";
 import Image from "next/image";
+import {Card, CardTitle} from "@/components/ui/card";
 
 export default async function Home() {
   const dogs = await fetchDogs();
@@ -12,10 +13,10 @@ export default async function Home() {
       <main>
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
           {dogs.map((dog, i) => (
-            <div key={i} className="aspect-square rounded-xl bg-muted/50">
+            <Card key={i} className={"flex flex-col justify-center items-center"}>
               <Image src={dog.image_url} alt={`A dog named ${dog.name}`} width={400} height={400} />
-              <h2>{dog.name}</h2>
-            </div>
+              <CardTitle className={"capitalize my-2"}>{dog.name}</CardTitle>
+            </Card>
           ))}
         </div>
       </main>
