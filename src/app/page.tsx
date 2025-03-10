@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <div className="grid grid-rows-[10fr_2fr] min-h-screen">
-      <main>
+      <main className={"px-11"}>
         <DogsSection dogs={dogs} />
       </main>
       <footer className="flex gap-6 flex-wrap items-center justify-center">
